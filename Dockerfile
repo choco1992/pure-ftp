@@ -2,7 +2,7 @@ FROM debian:stretch
 
 # feel free to change this ;)
 #LABEL maintainer "Andrew Stilliard <andrew.stilliard@gmail.com>"
-LABEL maintainer "Andrew Stilliard <monji.ulrich@gmail.com>"
+LABEL maintainer "Choco <monji.ulrich@gmail.com>"
 
 # properly setup debian sources
 ENV DEBIAN_FRONTEND noninteractive
