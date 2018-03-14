@@ -1,8 +1,14 @@
-spawn pure-pw useradd $1 -f /etc/pure-ftpd/passwd/pureftpd.passwd -m -u ftpuser -d $home_directory ;
+#!/usr/bin/expect
+#Attention,  script except, voir comment recevoir les arguments en paramètres ...
+
+user="$1" ; 
+password="$2";
+home_directory="$3" ; 
+spawn pure-pw useradd $user -f /etc/pure-ftpd/passwd/pureftpd.passwd -m -u ftpuser -d $home_directory ;
 
 
 expect "Password" ;
-send   "$2" ;
+send   "$password" ;
 expect "Enter it again" ;
-send   "$2" ;
-
+send   "$password" ;
+interact

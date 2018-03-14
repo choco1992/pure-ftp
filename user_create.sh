@@ -8,11 +8,12 @@ if test $# lt "2"
 then
         echo -e "Warning, this script have to be launch with two argument, please see Help Menu" ; 
   else
-        echo "Found  arguments : \n User $1 will have password $2 with default home directory $home_directory" ;
+        echo "Found  arguments : \n User $user_name will have password $password with default home directory $home_directory" ;
 
 fi
 
 
-docker exec -it ftpd_server  /opt/useradd.expect $1 $home_directory 
+docker exec -d ftpd_server  /opt/useradd.expect $user_name $password $home_directory  
+#docker exec -it ftpd_server  /opt/useradd.expect $user_name $password $home_directory  
 
 
