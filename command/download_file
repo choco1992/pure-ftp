@@ -1,0 +1,20 @@
+#!/usr/bin/expect
+set timeout 5 ;
+set username [lindex $argv 0]; 
+set password [lindex $argv 1] ;
+set file_to_download [lindex $argv 2]
+set ftp_server  [lindex $argv 3]
+
+
+spawn ftp $ftp_server
+expect "Name ($ftp_server:root):"
+send "$username\r" 
+expect "Password:"
+send "$password\r" 
+expect "ftp>"
+send "ascii\r"
+expect "ftp>"
+send "get $file_to_download\r"
+expect "ftp>"
+send "bye\r"
+

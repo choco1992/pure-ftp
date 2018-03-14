@@ -1,0 +1,11 @@
+#!/bin/bash
+
+user_name="$1" ; 
+
+pure-pw userdel $user_name -m -f /etc/pure-ftpd/passwd/pureftpd.passwd; 
+#( echo ${password} ; echo ${password} )  |  pure-pw useradd $user_name -f /etc/pure-ftpd/passwd/pureftpd.passwd -m -u ftpuser -d $home_directory > /dev/null 2>&1 ;
+
+
+
+
+
