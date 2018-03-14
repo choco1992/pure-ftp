@@ -28,5 +28,10 @@ fi
 echo "Starting Pure-FTPd:"
 echo "  pure-ftpd $PURE_FTPD_FLAGS"
 
+# Create share folder for all user 
+mkdir -p /mnt/upload ; 
+chown -R root:root /mnt/upload ;
+chmod 755 /mnt/upload ;
+  
 # start pureftpd with requested flags
 exec /usr/sbin/pure-ftpd $PURE_FTPD_FLAGS

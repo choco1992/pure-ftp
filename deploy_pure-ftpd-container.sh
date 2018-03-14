@@ -15,5 +15,5 @@ mkdir -p  /mnt/pure-ftpd/patch  /mnt/pure-ftpd/ftpusers /mnt/pure-ftpd/passwd /m
 chown -R root:root /mnt/pure-ftpd/patch ; 
  
 
-/usr/bin/docker run -d --name ftpd_server -p 21:21 -p 30000-30009:30000-30009 -e "PUBLICHOST=$PUBLICHOST"  -v  /mnt/pure-ftpd/ftpusers:/home/ftpusers  -v /mnt/pure-ftpd/passwd:/etc/pure-ftpd/passwd -v /mnt/pure-ftpd/ssl/private:/etc/ssl/private  -v /mnt/pure-ftpd/patch:/mnt  ftp-pozos ; 
+/usr/bin/docker run -d --name ftpd_server -p 21:21 -p 30000-30199:30000-30199 -e "PUBLICHOST=$PUBLICHOST"  -v  /mnt/pure-ftpd/ftpusers:/home/ftpusers  -v /mnt/pure-ftpd/passwd:/etc/pure-ftpd/passwd -v /mnt/pure-ftpd/ssl/private:/etc/ssl/private  -v /mnt/pure-ftpd/patch:/mnt/upload  ftp-pozos ; 
 

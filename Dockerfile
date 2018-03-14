@@ -51,6 +51,11 @@ RUN echo "" >> /etc/rsyslog.conf && \
 COPY run.sh /run.sh
 RUN chmod u+x /run.sh
 
+#setup file for add new users
+COPY add_ftp_user  /usr/bin/add_ftp_user 
+RUN chmod u+x /usr/bin/add_ftp_user
+
+
 # default publichost, you'll need to set this for passive support
 ENV PUBLICHOST localhost
 
@@ -58,6 +63,6 @@ ENV PUBLICHOST localhost
 VOLUME ["/home/ftpusers", "/etc/pure-ftpd/passwd"]
 
 # startup
-CMD /run.sh -c 5 -C 5 -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P $PUBLICHOST -p 30000:30009
+CMD /run.sh -c 100 -C 5 -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P $PUBLICHOST -p 30000:30199
 
 EXPOSE 21 30000-30009
