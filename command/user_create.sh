@@ -38,16 +38,28 @@ while getopts "$optspec" optchar; do
 done
 
 
-#Checking user name and password  options 
-for i in "$user_name" "$password"
- do
+#Checking user name and password  options
 
-	if test -z "$i"
-	  then
-		echo -e "\033[33mError : Missing Options!\033[0m, Please see Help Menu \n << --help >>  << -h >> options " ; 
-		exit 1 ; 
-	fi
-done
+        if test -z "$user_name"
+          then
+                echo -e "\033[33mError : Missing Options!\033[0m, Please see Help Menu \n << --help >>  << -h >> options " ;
+                exit 1 ;
+        else
+                if test -z "$password"
+                  then
+                        echo -e "Please enter the password for user \033[32m$user_name\033[0m"
+                        read -s password ;
+                        echo "Please confirm the password"
+                        read -s password2 ;
+                        
+			if [ "$password" != "$password2" ]
+                        then
+                                echo -e "\033[31mError\033[0m : First password is different from second" ;
+                                exit 1 ;
+                        fi
+
+                fi
+        fi
 
 #Checking home directory option
 if test -z "$home_directory"
