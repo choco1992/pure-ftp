@@ -6,17 +6,15 @@ home_directory="/mnt/upload" ;
 
 if (( "$#" < "2" ))
 then
-        echo -e "Warning, this script have to be launch with two argument, please see Help Menu \n First argument = user_name \n password = password" ; 
+        echo -e "\033[31mERROR\033[0m, Minimum 2 arguments mandatories for this command,  \nFirst argument = user name \nSecond argument = password \n\nPlease refer to Help Menu" ; 
 	exit "1" ; 
   else
-        echo -e "Found  arguments : \n User $user_name will have password $password with default home directory $home_directory" ;
+        echo -e "Found  arguments : \nUser \033[32m$user_name \033[0mwill be created with default home directory \033[32m$home_directory\033[0m" ;
 
 fi
 
 
 /usr/bin/docker exec -d ftpd_server add_ftp_user  $user_name $password $home_directory 
 
-# /opt/useradd.expect $user_name $password $home_directory  
-#docker exec -it ftpd_server  /opt/useradd.expect $user_name $password $home_directory  
 
 

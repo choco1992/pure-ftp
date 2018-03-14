@@ -55,7 +55,13 @@ RUN chmod u+x /run.sh
 COPY add_ftp_user  /usr/bin/add_ftp_user 
 RUN chmod u+x /usr/bin/add_ftp_user
 
+#setup file for deleting new users
+COPY delete_ftp_user  /usr/bin/delete_ftp_user
+RUN chmod u+x /usr/bin/delete_ftp_user
 
+#setup file for changeing  users paswword
+COPY change_user_passwd  /usr/bin/change_user_passwd
+RUN chmod u+x /usr/bin/change_user_passwd
 # default publichost, you'll need to set this for passive support
 ENV PUBLICHOST localhost
 

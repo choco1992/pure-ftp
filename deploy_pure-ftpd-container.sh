@@ -4,13 +4,15 @@ PUBLICHOST=$1 ;
 
 if test -z "$1" 
 then
-	echo -e "No IP detected as arguement, the server is going to run on local IP  (127.0.0.1) \n"
+	echo -e "\033[33mWARNING : \033[0m No IP detected as arguement, the server is going to run on localhost IP  \033[32m(127.0.0.1) \033[0m \n"
 	PUBLICHOST="127.0.0.1" ; 
   else 
-	echo "Found IP $1 , server will run on this IP " 
+	echo -e "Found IP \033[32m $1 \033[0m, server will run on this IP " 
 
 fi
 
+
+#Setting folder where we will mount docker volumes to store pacths, password file, and eventually another files.
 mkdir -p  /mnt/pure-ftpd/patch  /mnt/pure-ftpd/ftpusers /mnt/pure-ftpd/passwd /mnt/pure-ftpd/ssl/private ;
 chown -R root:root /mnt/pure-ftpd/patch ; 
  
