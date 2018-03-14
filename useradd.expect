@@ -1,0 +1,8 @@
+spawn pure-pw useradd $1 -f /etc/pure-ftpd/passwd/pureftpd.passwd -m -u ftpuser -d $home_directory ;
+
+
+expect "Password" ;
+send   "$2" ;
+expect "Enter it again" ;
+send   "$2" ;
+
